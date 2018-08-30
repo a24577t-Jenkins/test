@@ -34,6 +34,16 @@ pipeline {
         }
       }
     }
+    stage('Checkpoint') {
+      steps {
+        checkpoint 'Checkpoint'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        echo 'Deploying....'
+      }
+    }
     stage('Get Kernel') {
       steps {
         script {
@@ -45,11 +55,6 @@ pipeline {
           }
         }
 
-      }
-    }
-    stage('Say Kernel') {
-      steps {
-        echo "${KERNEL_VERSION}"
       }
     }
   }
